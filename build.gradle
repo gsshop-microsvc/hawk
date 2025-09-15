@@ -65,7 +65,7 @@ ext.deps = [
 
     // A modified version of Conceal v1.1.3 with 16KB-aligned native libraries.
     // Pulled from the Hawk v2.1.0-16kb GitHub Release asset.
-    conceal       : 'v2.1.0-16kb:conceal:1.1.3-16kb@aar',
+    conceal       : '2.1.1-16kb:conceal:1.1.3-16kb@aar',
 
     // Test dependencies
     junit         : 'junit:junit:4.12',
