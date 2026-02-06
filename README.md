@@ -13,6 +13,32 @@ This version has no backward compatibility with Hawk 1+ versions. If you still w
 compile "com.orhanobut:hawk:2.0.1"
 ```
 
+#### 16KB page size (Android 15+) — 단순한 방법
+
+JitPack 등으로 배포하는 Hawk는 **conceal을 POM에 넣지 않습니다.**  
+앱(또는 flutter_hawk)에서 **Conceal AAR 파일만 직접 넣으면** 됩니다.
+
+1. **AAR 파일 준비**  
+   이 저장소의 `hawk/libs/conceal-1.1.3-16kb.aar`를 복사하거나, [Releases](https://github.com/gsshop-microsvc/hawk/releases)에서 받습니다.
+
+2. **앱 프로젝트에 넣기**  
+   - Flutter 앱: `android/app/libs/` (없으면 생성)  
+   - 또는 flutter_hawk: `android/libs/`  
+   에 `conceal-1.1.3-16kb.aar`를 넣습니다.
+
+3. **의존성 한 줄 추가**  
+   해당 모듈의 `build.gradle` (예: `android/app/build.gradle` 또는 `flutter_hawk/android/build.gradle`)에:
+
+```groovy
+dependencies {
+    implementation 'com.github.gsshop-microsvc:hawk:2.1.5-16kb'
+    implementation files('libs/conceal-1.1.3-16kb.aar')
+}
+```
+
+저장소 URL·토큰 없이 이 한 줄만 추가하면 됩니다.  
+Maven에 conceal을 배포하고 싶다면 [docs/MAVEN_PUBLISH.md](docs/MAVEN_PUBLISH.md) 참고.
+
 ### Initialize
 ```java
 Hawk.init(context).build();

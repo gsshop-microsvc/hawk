@@ -19,8 +19,12 @@ android {
 }
 
 dependencies {
-  implementation deps.conceal
+  // compileOnly → JitPack 배포 시 POM에 안 넣음. 앱에서 AAR 직접 넣으면 됨 (단순 방식)
+  compileOnly deps.conceal
   implementation deps.gson
+
+  testImplementation deps.conceal
+  androidTestImplementation deps.conceal
 
   testImplementation deps.junit
   testImplementation deps.truth
